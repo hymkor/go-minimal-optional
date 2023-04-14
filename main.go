@@ -2,8 +2,8 @@ package optional
 
 type Option[T any] []T
 
-// New is a constructor to make an instance that has a value.
-func New[T any](value T) Option[T] {
+// Some is a constructor to make an instance that has a value.
+func Some[T any](value T) Option[T] {
 	return Option[T]([]T{value})
 }
 

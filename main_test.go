@@ -8,7 +8,7 @@ import (
 
 func TestIfSome(t *testing.T) {
 	called := false
-	x := optional.New(1)
+	x := optional.Some(1)
 	x.IfSome(func(v int) {
 		if v != 1 {
 			t.Fatal("value is not 1")
