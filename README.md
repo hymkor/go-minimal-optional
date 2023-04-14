@@ -15,28 +15,28 @@ import (
 )
 
 func TestIfSome(t *testing.T) {
-    found := false
-    v := optional.New(1)
-    v.IfSome(func(v int) {
+    called := false
+    x := optional.New(1)
+    x.IfSome(func(v int) {
         if v != 1 {
             t.Fatal("value is not 1")
         }
-        found = true
+        called = true
     })
 
-    if !found {
+    if !called {
         t.Fatal("IfSome is not called")
     }
 }
 
 func TestIsNone(t *testing.T) {
-    v := optional.None[int]()
+    x := optional.None[int]()
 
-    v.IfSome(func(v int) {
+    x.IfSome(func(v int) {
         t.Fatal("IfSome is called for None")
     })
 
-    if !v.IsNone() {
+    if !x.IsNone() {
         t.Fatal("IsNone is false for None")
     }
 }
