@@ -14,7 +14,7 @@ func None[T any]() Option[T] {
 
 // IfSome calls `f` when the receiver has a value. Otherwise it does nothing.
 func (p Option[T]) IfSome(f func(value T)) {
-	if p != nil {
+	if len(p) >= 1 {
 		f(p[0])
 	}
 }
