@@ -5,6 +5,8 @@ go-minimum-optional
 
 This package has two constructors and two methods only.
 
+`optional.Option` is an array whose size is 0 or 1. Therefore, the contents can be handled with for-range even in versions below Go 1.22.
+
 ```example.go
 package main
 
