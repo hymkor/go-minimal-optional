@@ -1,3 +1,3 @@
-module github.com/hymkor/go-minimum-optional
+module github.com/hymkor/go-minimal-optional
 
 go 1.20

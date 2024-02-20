@@ -1,6 +1,6 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/hymkor/go-minimum-optional.svg)](https://pkg.go.dev/github.com/hymkor/go-minimum-optional)
 
-go-minimum-optional
+go-minimal-optional
 ===================
 
 This package has only two constructors (Some, None) and three methods (IfSome, IsNone, Match).
@@ -13,7 +13,7 @@ It requires Go 1.18 or later.
 package main
 
 import (
-    "github.com/hymkor/go-minimum-optional"
+    "github.com/hymkor/go-minimal-optional"
 )
 
 func test(x optional.Option[int]) {

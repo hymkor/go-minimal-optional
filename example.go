@@ -3,7 +3,7 @@
 package main
 
 import (
-	"github.com/hymkor/go-minimum-optional"
+	"github.com/hymkor/go-minimal-optional"
 )
 
 func test(x optional.Option[int]) {
