@@ -23,3 +23,11 @@ func (p Option[T]) IfSome(f func(value T)) {
 func (p Option[T]) IsNone() bool {
 	return len(p) <= 0
 }
+
+func (p Option[T]) Match(then func(value T), otherwise func()) {
+	if len(p) > 0 {
+		then(p[0])
+	} else {
+		otherwise()
+	}
+}
