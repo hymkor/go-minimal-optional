@@ -7,7 +7,8 @@ This package has only two constructors (Some, None) and three methods (IfSome, I
 
 It requires Go 1.18 or later.
 
-`optional.Option` is an array whose size is 0 or 1. Therefore, the contents can be handled with for-range even in versions below Go 1.22.
++ `optional.Value` is an array whose size is 0 or 1. Therefore, the contents can be handled with for-range even in versions below Go 1.22.
++ `optional.Option` was renamed to `optional.Value`
 
 ```example.go
 package main
@@ -16,7 +17,7 @@ import (
     "github.com/hymkor/go-minimal-optional"
 )
 
-func test(x optional.Option[int]) {
+func test(x optional.Value[int]) {
     x.IfSome(func(v int) {
         println("   IfSome: it has a value:", v)
     })
