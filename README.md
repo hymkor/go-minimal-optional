@@ -5,39 +5,45 @@ go-minimum-optional
 
 This package has two constructors and two methods only.
 
-```main_test.go
-package optional_test
+```example.go
+package main
 
 import (
-    "testing"
-
     "github.com/hymkor/go-minimum-optional"
 )
 
-func TestIfSome(t *testing.T) {
-    called := false
-    x := optional.Some(1)
+func test(x optional.Option[int]) {
     x.IfSome(func(v int) {
-        if v != 1 {
-            t.Fatal("value is not 1")
-        }
-        called = true
+        println("   It has a value(callback):", v)
     })
 
-    if !called {
-        t.Fatal("IfSome is not called")
+    for _, v := range x {
+        println("   It has a value(range):", v)
     }
+
+    if x.IsNone() {
+        println("   It does not have a value")
+    }
+    println()
 }
 
-func TestIsNone(t *testing.T) {
-    x := optional.None[int]()
+func main() {
+    println("None[int]")
+    test(optional.None[int]())
 
-    x.IfSome(func(v int) {
-        t.Fatal("IfSome is called for None")
-    })
-
-    if !x.IsNone() {
-        t.Fatal("IsNone is false for None")
-    }
+    println("Some[int](4)")
+    test(optional.Some(4))
 }
+```
+
+**go run example.go**
+
+```go run example.go|
+None[int]
+   It does not have a value
+
+Some[int](4)
+   It has a value(callback): 4
+   It has a value(range): 4
+
 ```
