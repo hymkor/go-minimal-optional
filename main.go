@@ -21,5 +21,5 @@ func (p Option[T]) IfSome(f func(value T)) {
 
 // IsNone returns true when the receiver does not has a value. Otherwise it returns false.
 func (p Option[T]) IsNone() bool {
-	return p == nil
+	return len(p) <= 0
 }
