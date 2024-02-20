@@ -6,7 +6,7 @@ import (
 	"github.com/hymkor/go-minimal-optional"
 )
 
-func test(x optional.Option[int]) {
+func test(x optional.Value[int]) {
 	x.IfSome(func(v int) {
 		println("   IfSome: it has a value:", v)
 	})
