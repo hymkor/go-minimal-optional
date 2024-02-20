@@ -3,7 +3,7 @@ package optional_test
 import (
 	"testing"
 
-	"github.com/hymkor/go-minimum-optional"
+	"github.com/hymkor/go-minimal-optional"
 )
 
 func TestIfSome(t *testing.T) {
