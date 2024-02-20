@@ -32,3 +32,22 @@ func TestIsNone(t *testing.T) {
 		t.Fatal("IsNone is false for None")
 	}
 }
+
+func TestMatch(t *testing.T) {
+	x := optional.Some(3)
+	x.Match(func(v int) {
+		if v != 3 {
+			t.Fatal("Match: Some(3) must not call the first function with not 3")
+		}
+		//println("ok")
+	}, func() {
+		t.Fatal("Match: Some(3) must not call the second function")
+	})
+
+	y := optional.None[int]()
+	y.Match(func(v int) {
+		t.Fatal("Match: None[int] must not call the first function")
+	}, func() {
+		//println("ok")
+	})
+}
