@@ -51,3 +51,29 @@ func TestMatch(t *testing.T) {
 		//println("ok")
 	})
 }
+
+func BenchmarkIfSome(b *testing.B) {
+	y := 0
+	for i := 1; i <= b.N; i++ {
+		x := optional.Some(i)
+		x.IfSome(func(v int) {
+			y += v
+		})
+	}
+	if y != b.N*(b.N+1)/2 {
+		b.Fatal()
+	}
+}
+
+func BenchmarkIfNone(b *testing.B) {
+	y := 0
+	for i := 1; i <= b.N; i++ {
+		x := optional.None[int]()
+		x.IfSome(func(v int) {
+			y += v
+		})
+	}
+	if y != 0 {
+		b.Fatal()
+	}
+}
