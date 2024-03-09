@@ -54,6 +54,15 @@ func main() {
 
 **go run example.go**
 
-```env GOEXPERIMENT=rangefor go run example.go|
-go.exe: unknown GOEXPERIMENT rangefor
+```env GOEXPERIMENT=rangefunc go run example.go|
+None[int]
+   IsNone: it does not have a value
+   Match: it does not hava a value
+
+Some(4)
+   IfSome: it has a value: 4
+   for-range(ready for v1.18): it has a value: 4
+   for-range(v1.22 X:rangefunc): it has a value: 4
+   Match: it has a value: 4
+
 ```
