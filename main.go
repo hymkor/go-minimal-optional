@@ -19,6 +19,12 @@ func (p Value[T]) IfSome(f func(value T)) {
 	}
 }
 
+func (p Value[T]) Each(f func(value T) bool) {
+	if len(p) >= 1 {
+		f(p[0])
+	}
+}
+
 // IsNone returns true when the receiver does not has a value. Otherwise it returns false.
 func (p Value[T]) IsNone() bool {
 	return len(p) <= 0
