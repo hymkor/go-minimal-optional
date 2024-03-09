@@ -15,6 +15,7 @@ func test(x optional.Value[int]) {
 		println("   for-range(ready for v1.18): it has a value:", v)
 	}
 
+	// GOEXPRIMENT=rangefunc is required to build following line.
 	for v := range x.Each {
 		println("   for-range(v1.22 X:rangefunc): it has a value:", v)
 	}

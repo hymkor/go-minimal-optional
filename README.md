@@ -5,8 +5,6 @@ go-minimal-optional
 
 This package has only two constructors (Some, None) and three methods (IfSome, IsNone, Match).
 
-It requires Go 1.18 or later.
-
 + `optional.Value` is an array whose size is 0 or 1. Therefore, the contents can be handled with for-range even in versions below Go 1.22.
 + `optional.Option` was renamed to `optional.Value`
 
@@ -26,6 +24,7 @@ func test(x optional.Value[int]) {
         println("   for-range(ready for v1.18): it has a value:", v)
     }
 
+    // GOEXPRIMENT=rangefunc is required to build following line.
     for v := range x.Each {
         println("   for-range(v1.22 X:rangefunc): it has a value:", v)
     }
@@ -52,7 +51,7 @@ func main() {
 }
 ```
 
-**go run example.go**
+**env GOEXPERIMENT=rangefunc go run example.go**
 
 ```env GOEXPERIMENT=rangefunc go run example.go|
 None[int]
