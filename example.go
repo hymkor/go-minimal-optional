@@ -12,7 +12,11 @@ func test(x optional.Value[int]) {
 	})
 
 	for _, v := range x {
-		println("   for-range: it has a value:", v)
+		println("   for-range(ready for v1.18): it has a value:", v)
+	}
+
+	for v := range x.Each {
+		println("   for-range(v1.22 X:rangefunc): it has a value:", v)
 	}
 
 	if x.IsNone() {
